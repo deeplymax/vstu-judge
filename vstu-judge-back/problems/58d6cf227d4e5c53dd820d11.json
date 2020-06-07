@@ -1,0 +1,66 @@
+{
+  "_id": { "$oid": "58d6cf227d4e5c53dd820d11" },
+  "build": {
+    "image": "deeplymax/vstu-judge-images:c-build",
+    "extension": ".c"
+  },
+  "test": {
+    "image": "deeplymax/vstu-judge-images:c-test",
+    "preprocess": true,
+    "continueOnFailure": true,
+    "tests": [
+      {
+        "input": "3",
+        "output": "NO"
+      },
+      {
+        "input": "4",
+        "output": "YES"
+      },
+      {
+        "input": "5",
+        "output": "NO"
+      },
+      {
+        "input": "8",
+        "output": "YES"
+      },
+      {
+        "input": "8",
+        "output": "YES"
+      },
+      {
+        "input": "8",
+        "output": "YES"
+      },
+      {
+        "input": "8",
+        "output": "YES"
+      },
+      {
+        "input": "1",
+        "output": "NO"
+      },
+      {
+        "input": "1",
+        "output": "NO"
+      },
+      {
+        "input": "1",
+        "output": "NO"
+      },
+      {
+        "input": "1",
+        "output": "NO"
+      },
+      {
+        "input": "1",
+        "output": "NO"
+      },
+      {
+        "input": "2",
+        "output": "NO"
+      }
+    ]
+  }
+}

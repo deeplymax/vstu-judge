@@ -1,0 +1,11 @@
+version: "2"
+
+services:
+  c-build:
+    build: "./c-build"
+    image: "deeplymax/vstu-judge-images:c-build"
+
+  c-test:
+    build: "./c-test"
+    image: "deeplymax/vstu-judge-images:c-test"
+

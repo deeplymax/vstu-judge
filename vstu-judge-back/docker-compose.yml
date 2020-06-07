@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+  vstu-judge-back:
+    build: "."
+    image: "vstu-judge-back"
+    depends_on:
+      - "vstu-judge-redis-db"
+      - "vstu-judge-mongo-db"
+
+  vstu-judge-redis-db:
+    image: "redis:3.0.7"
+    networks:
+      default:
+        aliases:
+          - "vstu-judge-state-db"
+  vstu-judge-mongo-db:
+    image: "mongo:3.2.6"
+    networks:
+      default:
+        aliases:
+          - "vstu-judge-problem-db"
