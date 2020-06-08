@@ -1,0 +1,592 @@
+{
+	"info": {
+		"_postman_id": "ffc74eec-81d8-48a0-87c6-8c23340ccdad",
+		"name": "vstu_judge_submit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ab_successfull_no_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fd47601a-017c-4b13-93d2-158a0e35fdce",
+						"exec": [
+							"pm.test(\"Send status\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Test status submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"in progress\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "572709f8d12a816dfbde7a8b",
+							"type": "text"
+						},
+						{
+							"key": "submission",
+							"value": "int main() {\n    int a, b;\n    scanf(\"%d%d\", &a, &b);\n    printf(\"%d\", a + b);\n}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7070/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ab_successfull_with_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "19c6f194-08b0-4b20-b2b7-6ca0317e27d7",
+						"exec": [
+							"pm.test(\"Send status\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Test status submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"in progress\");",
+							"    pm.expect(jsonData.id).to.eql(\"1\");",
+							"});",
+							"pm.test(\"Test id submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.eql(\"1\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "572709f8d12a816dfbde7a8b",
+							"type": "text"
+						},
+						{
+							"key": "submission",
+							"value": "int main() {\n    int a, b;\n    scanf(\"%d%d\", &a, &b);\n    printf(\"%d\", a + b);\n}",
+							"type": "text"
+						},
+						{
+							"key": "submission_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7070/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "watermellon_successfull_no_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a8f355db-b482-4ca2-b1af-61be1de91301",
+						"exec": [
+							"pm.test(\"Send status\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Test status submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"in progress\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "58d6cf227d4e5c53dd820d11",
+							"type": "text"
+						},
+						{
+							"key": "submission",
+							"value": "#include <stdio.h>\nint main() {\n int w;\n scanf(\"%d\", &w);\n if (w % 2 == 0 && w != 2) {  \n printf(\"YES\"); \n}\n else {\n  printf(\"NO\");\n }\n return 0;\n}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7070/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "watermellon_successfull_with_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6e504f98-d4f8-4515-a303-f5cce824d7ff",
+						"exec": [
+							"pm.test(\"Send status\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Test status submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"in progress\");",
+							"});",
+							"pm.test(\"Test id submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.eql(\"2\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "58d6cf227d4e5c53dd820d11",
+							"type": "text"
+						},
+						{
+							"key": "submission",
+							"value": "#include <stdio.h>\nint main() {\n int w;\n scanf(\"%d\", &w);\n if (w % 2 == 0 && w != 2) {  \n printf(\"YES\"); \n}\n else {\n  printf(\"NO\");\n }\n return 0;\n}",
+							"type": "text"
+						},
+						{
+							"key": "submission_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7070/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "watermellon_13_test_failed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f314447b-f6ce-4933-a5c9-388d81f35cee",
+						"exec": [
+							"pm.test(\"Send status\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Test status submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"in progress\");",
+							"});",
+							"pm.test(\"Test id submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.eql(\"5\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "58d6cf227d4e5c53dd820d11",
+							"type": "text"
+						},
+						{
+							"key": "submission",
+							"value": "#include <stdio.h>\nint main() {\n int w;\n scanf(\"%d\", &w);\n if (w % 2 == 0) {  \n printf(\"YES\"); \n}\n else {\n  printf(\"NO\");\n }\n return 0;\n}",
+							"type": "text"
+						},
+						{
+							"key": "submission_id",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7070/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "watermellon_all_test_failed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e7149f0-f254-41c3-a4c9-db7188965585",
+						"exec": [
+							"pm.test(\"Send status\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Test status submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"in progress\");",
+							"});",
+							"pm.test(\"Test id submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.eql(\"4\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "58d6cf227d4e5c53dd820d11",
+							"type": "text"
+						},
+						{
+							"key": "submission",
+							"value": "#include <stdio.h>\nint main() {\n int w;\n scanf(\"%d\", &w);\n if (w % 2 == 0 && w != 2) {  \n printf(\"NO\"); \n}\n else {\n  printf(\"YES\");\n }\n return 0;\n}",
+							"type": "text"
+						},
+						{
+							"key": "submission_id",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7070/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wrong_build",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8e0bb44f-c4ec-4aaa-997a-00d79abef916",
+						"exec": [
+							"pm.test(\"Send status\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Test status submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"in progress\");",
+							"});",
+							"pm.test(\"Test id submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.eql(\"3\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "58d6cf227d4e5c53dd820d11",
+							"type": "text"
+						},
+						{
+							"key": "submission",
+							"value": "int main{} s",
+							"type": "text"
+						},
+						{
+							"key": "submission_id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7070/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no_problem_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e9ac1b2a-27b6-4076-b326-624d87468a9c",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Test error submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error).to.eql(\"The problem ID was not provided.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "submission",
+							"value": "a",
+							"type": "text"
+						},
+						{
+							"key": "submission_id",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7070/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "incorrect_problem_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "127f8321-9981-4565-b5cd-607986571eeb",
+						"exec": [
+							"pm.test(\"Status code is 500\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});",
+							"pm.test(\"Test error submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error).to.eql(\"No problem definitions were found for the provided ID.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1231232",
+							"type": "text"
+						},
+						{
+							"key": "submission",
+							"value": "int main{}",
+							"type": "text"
+						},
+						{
+							"key": "submission_id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7070/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no_source_code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0bd5d080-af6c-4643-b1d0-05eb93fcbaeb",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Test error submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error).to.eql(\"Submission sources were not provided.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "58d6cf227d4e5c53dd820d11",
+							"type": "text"
+						},
+						{
+							"key": "submission_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "submission",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7070/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

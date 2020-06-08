@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "842b76f4-bd61-4463-a9b2-d4835bcb14a7",
+		"name": "vstu_judge_submission_status_check",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "check_successfull_submission_1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "822da4d2-0140-4405-9e91-f5070ec91695",
+						"exec": [
+							"pm.test(\"Status answer\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Test status submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"finished\");",
+							"});",
+							"pm.test(\"Test id submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.eql(\"1\");",
+							"});",
+							"pm.test(\"All test in submission passed\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    for(let i = 0; i < 7; i++) {",
+							"        pm.expect(jsonData.results[i]).to.eql(\"passed\");",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7070/submissions/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submissions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check_successfull_submission_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f5812f25-594f-42dc-ae70-80caccbe2ba6",
+						"exec": [
+							"pm.test(\"Status answer\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Test status submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"finished\");",
+							"});",
+							"pm.test(\"Test id submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.eql(\"2\");",
+							"});",
+							"pm.test(\"All test in submission passed\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    for(let i = 0; i < 12; i++) {",
+							"        pm.expect(jsonData.results[i]).to.eql(\"passed\");",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7070/submissions/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submissions",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all_test_failed_4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0e7b4d9e-dc58-419a-8769-1149f4539486",
+						"exec": [
+							"pm.test(\"Status answer\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Test status submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"finished\");",
+							"});",
+							"pm.test(\"Test id submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.eql(\"4\");",
+							"});",
+							"pm.test(\"All test in submission passed\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    for(let i = 0; i < 12; i++) {",
+							"        pm.expect(jsonData.results[i]).to.eql(\"failed\");",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7070/submissions/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submissions",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "one_test_failed_5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a049d24a-2226-4fd9-9cdb-8d643af76e76",
+						"exec": [
+							"pm.test(\"Status answer\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Test status submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"finished\");",
+							"});",
+							"pm.test(\"Test id submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.eql(\"5\");",
+							"});",
+							"pm.test(\"All test in submission passed\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    for(let i = 0; i < 12; i++) {",
+							"        if(i == 12) {",
+							"            pm.expect(jsonData.results[i]).to.eql(\"failed\");",
+							"        }",
+							"        else {",
+							"            pm.expect(jsonData.results[i]).to.eql(\"passed\");",
+							"        }",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7070/submissions/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submissions",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check_wrong_build_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "331a6893-8177-43be-9885-f6a5f40ebd50",
+						"exec": [
+							"pm.test(\"Status answer\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Test status submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"failed\");",
+							"});",
+							"pm.test(\"Test id submission\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.eql(\"3\");",
+							"});",
+							"pm.test(\"No test were launched\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.results).to.eql(undefined);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7070/submissions/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7070",
+					"path": [
+						"submissions",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
